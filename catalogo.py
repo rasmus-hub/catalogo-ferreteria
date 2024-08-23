@@ -1,10 +1,12 @@
+# Aplicacion de catalogo de una ferreteria simple
+# Catalogo default
 catalogo = {'Tornillos': 2}
 
-#catalogo['Tuercas'] = 3
-
+# Datos de usuario para iniciar sesion
 usuario = 'gustavo02'
 contrasena = 'inacap2024'
 
+# Funciones CRUD para agilizar el proceso de desarrollo
 def verProductos():
     listado = 0
     for producto, cantidad in catalogo.items():
@@ -28,6 +30,7 @@ def eliminarProducto(nombre):
             catalogo.pop(producto)
             print(f'Producto "{nombre}" con el valor {cantidad} eliminado correctamente ✅')
 
+# Inicio de sesion con credenciales
 def gestionFerreteria():
     op = 0
     while op != 5:
@@ -50,9 +53,13 @@ def gestionFerreteria():
             case 4:
                 nombre = input('Ingrese nombre del producto: ')
                 eliminarProducto(nombre)
+            case 5:
+                print('Sesión correctamente cerrada ✅')
+            case _:
+                print(f'Opción {op} no listada')
         print('-' * 50)
 
-
+# Adjuntar todo en un while true para que el ciclo siga sin importar si el usuario cierra sesion
 while True:
     print('\n[ Ferreteria Los Alamos 📎 ]')
     usuario_i = input('Ingrese usuario: ')
@@ -66,4 +73,5 @@ while True:
     else:
         print('DATOS INCORRECTOS ❌\n')
     
+    # Separadores para que la vista entre lineas sea mejor
     print('-' * 30)
